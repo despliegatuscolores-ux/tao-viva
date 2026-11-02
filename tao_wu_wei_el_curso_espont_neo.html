@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAO · WU WEI | El Curso Espontáneo (無為)</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cormorant Garamond, Cinzel y Noto Serif SC con respaldo seguro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            chinese: ['"Noto Serif SC"', '"Songti SC"', 'SimSun', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            ink: {
+              950: '#06080a',
+              900: '#0a0d10',
+              850: '#11161d',
+              800: '#19202a',
+              700: '#232c3a',
+              600: '#333f52',
+            },
+            jade: {
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+            },
+            bamboo: {
+              100: '#f7f4ed',
+              200: '#e8e2d5',
+              300: '#c9bfaf',
+              400: '#a39783',
+            },
+            mist: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+    }
+
+    body {
+      background-color: #0a0d10;
+      color: #f8fafc;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* Estilo Shanshui (Tinta y Jade) */
+    .shanshui-card {
+      background: linear-gradient(145deg, rgba(17, 22, 29, 0.92) 0%, rgba(10, 13, 16, 0.95) 100%);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(16, 185, 129, 0.05);
+      backdrop-filter: blur(14px);
+    }
+
+    .tab-active {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(52, 211, 153, 0.15) 100%) !important;
+      border-color: rgba(52, 211, 153, 0.6) !important;
+      color: #34d399 !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+    }
+
+    .jade-glow {
+      box-shadow: 0 0 35px rgba(16, 185, 129, 0.35);
+    }
+
+    /* Scrollbar sutil color jade/tinta */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0d10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(52, 211, 153, 0.3);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(52, 211, 153, 0.6);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col antialiased selection:bg-jade-500/30 selection:text-jade-300">
+
+  <!-- ================= NOTIFICACIÓN TOAST SUTIL ================= -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-ink-850 text-bamboo-100 border border-jade-500/40 px-5 py-3 rounded-2xl shadow-2xl text-xs font-medium flex items-center space-x-3 shadow-jade-500/10">
+    <span id="toast-icon" class="text-base">🌊</span>
+    <span id="toast-msg">El agua encuentra su cauce</span>
+  </div>
+
+  <!-- ================= ENCABEZADO Y SELECTOR DE PENTALOGÍA ================= -->
+  <header class="border-b border-ink-800 bg-ink-950/95 backdrop-blur-md sticky top-0 z-40">
+    
+    <!-- Barra Superior: Pentalogía Contemplativa -->
+    <div class="border-b border-ink-800/80 bg-ink-900/90 py-1.5 px-4 text-center">
+      <div class="max-w-6xl mx-auto flex items-center justify-between text-[11px] font-cinzel text-bamboo-300 tracking-wider">
+        <span class="hidden md:inline text-bamboo-400 font-semibold">Pentalogía Contemplativa</span>
+        <div class="flex items-center space-x-2.5 sm:space-x-3.5 mx-auto md:mx-0 overflow-x-auto no-scrollbar py-0.5">
+          <a href="../sutra-yoga/" class="opacity-60 hover:opacity-100 hover:text-jade-400 transition whitespace-nowrap">
+            Vol. I · Yoga
+          </a>
+          <span class="text-ink-700">✦</span>
+          <a href="../sutra-dharma/" class="opacity-60 hover:opacity-100 hover:text-jade-400 transition whitespace-nowrap">
+            Vol. II · Dharma
+          </a>
+          <span class="text-ink-700">✦</span>
+          <a href="../tantra-viva/" class="opacity-60 hover:opacity-100 hover:text-jade-400 transition whitespace-nowrap">
+            Vol. III · Tantra
+          </a>
+          <span class="text-ink-700">✦</span>
+          <a href="../bhakti-viva/" class="opacity-60 hover:opacity-100 hover:text-jade-400 transition whitespace-nowrap">
+            Vol. IV · Bhakti
+          </a>
+          <span class="text-ink-700">✦</span>
+          <span class="text-jade-400 font-bold border-b border-jade-400 pb-0.5 whitespace-nowrap">
+            Vol. V · Tao Wu Wei
+          </span>
+        </div>
+        <span class="hidden md:inline text-jade-400/80 text-[10px]">Zìrán · Espontaneidad</span>
+      </div>
+    </div>
+
+    <!-- Barra Principal -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-4">
+      
+      <!-- Marca / Logotipo -->
+      <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="switchTab('daily')">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-jade-900 via-ink-850 to-ink-800 border border-jade-500/40 flex items-center justify-center text-jade-300 font-chinese text-xl shadow-lg">
+          道
+        </div>
+        <div>
+          <span class="font-cinzel tracking-widest text-base sm:text-lg font-bold text-mist-50 block leading-tight">TAO · WU WEI</span>
+          <span class="text-[9px] sm:text-[10px] tracking-widest uppercase text-jade-400 font-medium">El Curso Espontáneo (無為)</span>
+        </div>
+      </div>
+
+      <!-- Menú Desktop Píldoras -->
+      <nav class="hidden lg:flex items-center space-x-1 text-xs font-semibold tracking-wider uppercase font-cinzel">
+        <button onclick="switchTab('daily')" id="nav-daily" class="nav-btn px-3 py-2 rounded-xl text-bamboo-200 hover:text-jade-300 border border-transparent transition">
+          Capítulo Vivo
+        </button>
+        <button onclick="switchTab('lab')" id="nav-lab" class="nav-btn px-3 py-2 rounded-xl text-bamboo-200 hover:text-jade-300 border border-transparent transition">
+          Laboratorio Wu Wei
+        </button>
+        <button onclick="switchTab('fasting')" id="nav-fasting" class="nav-btn px-3 py-2 rounded-xl text-bamboo-200 hover:text-jade-300 border border-transparent transition">
+          Ayuno del Corazón
+        </button>
+        <button onclick="switchTab('unlearning')" id="nav-unlearning" class="nav-btn px-3 py-2 rounded-xl text-bamboo-200 hover:text-jade-300 border border-transparent transition">
+          Bloque sin Tallar (樸)
+        </button>
+        <button onclick="switchTab('compendium')" id="nav-compendium" class="nav-btn px-3 py-2 rounded-xl text-bamboo-200 hover:text-jade-300 border border-transparent transition">
+          Compendio
+        </button>
+      </nav>
+
+      <!-- Contador de Gotas & Sonido del Arroyo de Montaña -->
+      <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+        <!-- Racha de fluidez -->
+        <div class="flex items-center space-x-1.5 bg-ink-850 border border-jade-500/30 px-3 py-1.5 rounded-full text-xs" title="Días consecutivos en el flujo natural">
+          <span class="text-jade-400">💧</span>
+          <span class="font-semibold text-bamboo-100" id="streak-counter">0 gotas</span>
+        </div>
+
+        <!-- Botón Arroyo de Montaña Procedural -->
+        <button onclick="toggleStreamAudio()" id="stream-btn" class="p-2 sm:px-3 sm:py-1.5 rounded-xl border border-jade-500/40 bg-ink-850 hover:bg-jade-500/10 text-jade-300 text-xs font-cinzel flex items-center space-x-1.5 transition" title="Activar/Pausar Murmullo del Arroyo">
+          <span id="stream-icon">🌊</span>
+          <span class="hidden sm:inline" id="stream-btn-text">Arroyo</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Menú Móvil con desplazamiento horizontal -->
+    <div class="flex lg:hidden overflow-x-auto px-4 py-2 space-x-2 border-t border-ink-800 text-xs uppercase font-cinzel font-semibold no-scrollbar">
+      <button onclick="switchTab('daily')" id="mob-nav-daily" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-ink-850 border border-transparent">Capítulo</button>
+      <button onclick="switchTab('lab')" id="mob-nav-lab" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-ink-850 border border-transparent">Laboratorio</button>
+      <button onclick="switchTab('fasting')" id="mob-nav-fasting" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-ink-850 border border-transparent">Ayuno Corazón</button>
+      <button onclick="switchTab('unlearning')" id="mob-nav-unlearning" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-ink-850 border border-transparent">Bloque Pǔ</button>
+      <button onclick="switchTab('compendium')" id="mob-nav-compendium" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-ink-850 border border-transparent">Compendio</button>
+    </div>
+  </header>
+
+  <!-- ================= CONTENEDOR PRINCIPAL ================= -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 py-6 sm:py-10">
+
+    <!-- ================= SECCIÓN 1: EL CAPÍTULO VIVO ================= -->
+    <section id="view-daily" class="view-content space-y-8">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-xs uppercase tracking-widest text-jade-400 font-cinzel font-bold">El Arte de No Forzar</span>
+        <h1 class="text-3xl sm:text-4xl font-serif font-bold text-mist-50">Fluir con el Orden Natural</h1>
+        <p class="text-sm text-bamboo-200">
+          «El agua no compite con la roca: la rodea, la abraza y con paciencia infinita desgasta sus aristas. Nada en el mundo es más dócil, y nada puede vencerla.»
+        </p>
+      </div>
+
+      <!-- Tarjeta del Aforismo Activo -->
+      <div class="shanshui-card rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+        
+        <div class="flex items-center justify-between border-b border-ink-700/80 pb-4 mb-6">
+          <div class="flex items-center space-x-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-cinzel font-bold bg-jade-950/80 border border-jade-600/50 text-jade-300" id="daily-source-tag">
+              Daodejing · Cap. 8
+            </span>
+            <span class="text-xs uppercase tracking-wider font-semibold text-bamboo-300" id="daily-theme-tag">
+              Shàng Shàn Ruò Shuǐ
+            </span>
+          </div>
+
+          <button onclick="pickRandomChapter()" class="text-xs text-bamboo-200 hover:text-jade-300 flex items-center space-x-1.5 bg-ink-800/80 px-3 py-1.5 rounded-xl border border-ink-700 hover:border-jade-500/40 transition" title="Inspirar otro capítulo">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Inspirar otro</span>
+          </button>
+        </div>
+
+        <!-- Verso en Caracteres Chinos Tradicionales & Pīnyīn -->
+        <div class="space-y-4 text-center my-6">
+          <div class="text-3xl sm:text-4xl font-chinese text-mist-50 tracking-wider" id="daily-chinese">
+            上善若水。水善利萬物而不爭，處眾人之所惡，故幾於道。
+          </div>
+          <div class="text-xs tracking-widest text-jade-400 font-mono" id="daily-pinyin">
+            [ Shàng shàn ruò shuǐ. Shuǐ shàn lì wànwù ér bù zhēng... ]
+          </div>
+          <div class="text-xl sm:text-2xl font-serif text-jade-300 font-semibold max-w-2xl mx-auto pt-2 leading-relaxed" id="daily-translation">
+            «La suprema bondad es como el agua. El agua nutre a todos los seres sin competir y habita en los lugares que todos desprecian. Por eso se asemeja al Tao.»
+          </div>
+        </div>
+
+        <!-- Clave Wu Wei y Micro-Práctica Diaria -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-ink-700/80">
+          
+          <div class="bg-ink-850/80 p-5 rounded-2xl border border-ink-700">
+            <h4 class="text-xs font-bold tracking-widest uppercase text-jade-400 font-cinzel flex items-center space-x-2 mb-2">
+              <span>💧</span>
+              <span>La Clave Wu Wei (El Arte de No Forzar)</span>
+            </h4>
+            <p class="text-sm leading-relaxed text-bamboo-100" id="daily-insight">
+              Empujar el río solo cansa los brazos; el río ya sabe fluir hacia el mar. Cuando dejas de forzar los acontecimientos y de imponer tu guion personal, la inteligencia natural de las cosas encuentra su equilibrio orgánico.
+            </p>
+          </div>
+
+          <div class="bg-jade-950/30 p-5 rounded-2xl border border-jade-800/40">
+            <h4 class="text-xs font-bold tracking-widest uppercase text-jade-300 font-cinzel flex items-center space-x-2 mb-2">
+              <span>🍃</span>
+              <span>Micro-Práctica de Acción Espontánea</span>
+            </h4>
+            <p class="text-sm leading-relaxed text-bamboo-100" id="daily-practice">
+              Hoy, renuncia activamente a tener la última palabra en cualquier conversación o discrepancia. Deja que el otro gane el argumento aparente y nota el alivio de no gastar energía en defender una imagen.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+          <button id="btn-mark-flowed" onclick="markFlowedToday()" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-jade-600 to-teal-500 hover:from-jade-500 hover:to-teal-400 text-slate-950 font-cinzel font-bold text-xs tracking-wider flex items-center justify-center space-x-2 shadow-lg transition">
+            <span class="text-base">💧</span>
+            <span id="btn-flowed-text">He fluido con este principio hoy</span>
+          </button>
+
+          <div class="flex items-center space-x-3 w-full sm:w-auto">
+            <button onclick="openNoteModal()" class="w-full sm:w-auto px-4 py-3 rounded-2xl border border-jade-500/30 bg-ink-850 hover:bg-ink-800 text-xs font-cinzel tracking-wider font-semibold text-bamboo-200 flex items-center justify-center space-x-2">
+              <span>✍️</span>
+              <span>Anotar Desaprendizaje</span>
+            </button>
+            <button onclick="shareChapterText()" class="px-4 py-3 rounded-2xl border border-ink-700 bg-ink-850 hover:bg-ink-800 text-xs text-bamboo-300 flex items-center justify-center" title="Copiar capítulo y práctica">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Los Tres Tesoros del Tao (Sanbao) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+        <div class="p-5 rounded-2xl shanshui-card">
+          <div class="text-jade-400 font-chinese text-2xl font-bold mb-1">慈 (Cí)</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-bamboo-300 mb-1">Compasión / Ternura</div>
+          <p class="text-xs text-bamboo-200">La gentileza que no busca someter a nada ni a nadie es la fuerza más indestructible.</p>
+        </div>
+        <div class="p-5 rounded-2xl shanshui-card">
+          <div class="text-jade-400 font-chinese text-2xl font-bold mb-1">儉 (Jiǎn)</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-bamboo-300 mb-1">Moderación / Simplicidad</div>
+          <p class="text-xs text-bamboo-200">No derrochar energía vital en deseos artificiales ni ambiciones desmedidas.</p>
+        </div>
+        <div class="p-5 rounded-2xl shanshui-card">
+          <div class="text-jade-400 font-chinese text-2xl font-bold mb-1">不敢為天下先</div>
+          <div class="text-xs font-bold uppercase tracking-wider text-bamboo-300 mb-1">Humildad sin pretensión</div>
+          <p class="text-xs text-bamboo-200">No ponerse en primer lugar; permitir que la vida te preceda y te sostenga.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= SECCIÓN 2: LABORATORIO WU WEI ================= -->
+    <section id="view-lab" class="view-content hidden space-y-6">
+      
+      <div class="max-w-2xl mx-auto text-center space-y-2">
+        <span class="text-xs uppercase tracking-widest text-jade-400 font-cinzel font-bold">Daodejing 37 · 無為而無不為</span>
+        <h2 class="text-3xl font-serif font-bold text-mist-50">Laboratorio de la No-Fuerza</h2>
+        <p class="text-sm text-bamboo-200">
+          «El Tao nunca actúa por capricho ni coacción y, sin embargo, nada queda sin hacerse.» Descubre dónde estás empujando el río y aprende a desatar el nudo sin romper la cuerda.
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto shanshui-card rounded-3xl p-6 sm:p-8 space-y-6">
+        
+        <!-- Pasos interactivos -->
+        <div class="grid grid-cols-3 gap-2 border-b border-ink-700 pb-4">
+          <button onclick="setLabStep(1)" id="lab-step-btn-1" class="py-2 text-xs font-cinzel font-bold border-b-2 border-jade-500 text-jade-300">
+            1. ¿Dónde empujas?
+          </button>
+          <button onclick="setLabStep(2)" id="lab-step-btn-2" class="py-2 text-xs font-cinzel font-bold border-b-2 border-transparent text-bamboo-400">
+            2. La Mirada del Agua
+          </button>
+          <button onclick="setLabStep(3)" id="lab-step-btn-3" class="py-2 text-xs font-cinzel font-bold border-b-2 border-transparent text-bamboo-400">
+            3. La No-Acción Sabia
+          </button>
+        </div>
+
+        <!-- Paso 1: Identificar la coacción -->
+        <div id="lab-step-1" class="space-y-4">
+          <div class="border-l-4 border-jade-500 pl-4 py-1">
+            <h3 class="font-bold text-base text-mist-50">Paso 1: ¿Qué situación o persona estás intentando forzar?</h3>
+            <p class="text-xs text-bamboo-300">Una conversación que quieres acelerar, un resultado que te obsesiona o un cambio ajeno.</p>
+          </div>
+
+          <textarea id="lab-friction-input" rows="4" class="w-full bg-ink-850 border border-ink-700 rounded-2xl p-4 text-sm text-mist-50 placeholder-bamboo-400 focus:outline-none focus:border-jade-500 resize-none" placeholder="Ejemplo: Estoy desesperado porque mi compañero de trabajo no entiende mi planteamiento y siento el impulso de insistirle con diez mensajes más..."></textarea>
+
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="text-bamboo-400 self-center">Tensiones comunes:</span>
+            <button onclick="setLabPreset('Quiero cambiar la actitud de alguien a mi conveniencia')" class="px-2.5 py-1 bg-ink-800 rounded-lg text-bamboo-200 hover:text-jade-300">Cambiar al otro</button>
+            <button onclick="setLabPreset('Prisa y desesperación porque un plazo o trámite se retrasa')" class="px-2.5 py-1 bg-ink-800 rounded-lg text-bamboo-200 hover:text-jade-300">Prisa por el resultado</button>
+            <button onclick="setLabPreset('Miedo a soltar el control de una tarea y delegar')" class="px-2.5 py-1 bg-ink-800 rounded-lg text-bamboo-200 hover:text-jade-300">Miedo a delegar</button>
+          </div>
+
+          <div class="flex justify-end pt-3">
+            <button onclick="goToLabStep(2)" class="px-6 py-2.5 bg-jade-600 hover:bg-jade-500 text-slate-950 font-cinzel font-bold rounded-xl text-xs uppercase tracking-wider">
+              Consultar la Mirada del Agua →
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 2: La Mirada del Agua (Shuǐ) -->
+        <div id="lab-step-2" class="space-y-5 hidden">
+          <div class="border-l-4 border-teal-500 pl-4 py-1">
+            <h3 class="font-bold text-base text-mist-50">Paso 2: ¿Qué haría el agua ante este obstáculo?</h3>
+            <p class="text-xs text-bamboo-300">El agua nunca embiste de frente contra una peña; aplica una de sus tres naturalezas.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button onclick="selectWaterNature('Rodear (Ceder el paso)', 'El agua encuentra el intersticio libre sin discutir con la dureza.')" id="water-btn-1" class="water-opt-btn p-4 rounded-2xl border border-ink-700 bg-ink-850 hover:border-jade-500 text-left space-y-1.5 focus:outline-none">
+              <div class="text-xl">🌊</div>
+              <div class="font-bold text-xs text-jade-300">1. Rodear</div>
+              <div class="text-[11px] text-bamboo-300">Ceder el paso sin combatir la dureza.</div>
+            </button>
+            <button onclick="selectWaterNature('Sedimentar (Esperar quietud)', 'El agua turbia solo se aclara cuando se la deja reposar sin agitarla.')" id="water-btn-2" class="water-opt-btn p-4 rounded-2xl border border-ink-700 bg-ink-850 hover:border-jade-500 text-left space-y-1.5 focus:outline-none">
+              <div class="text-xl">🍵</div>
+              <div class="font-bold text-xs text-jade-300">2. Sedimentar</div>
+              <div class="text-[11px] text-bamboo-300">Dejar de remover el fango; esperar calma.</div>
+            </button>
+            <button onclick="selectWaterNature('Descender (Ocupar el lugar bajo)', 'El mar es rey de los ríos porque sabe colocarse por debajo de ellos.')" id="water-btn-3" class="water-opt-btn p-4 rounded-2xl border border-ink-700 bg-ink-850 hover:border-jade-500 text-left space-y-1.5 focus:outline-none">
+              <div class="text-xl">🎋</div>
+              <div class="font-bold text-xs text-jade-300">3. Descender</div>
+              <div class="text-[11px] text-bamboo-300">Soltar el estatus y la superioridad moral.</div>
+            </button>
+          </div>
+
+          <div id="water-feedback" class="p-4 bg-ink-850 rounded-2xl border border-jade-500/30 text-xs text-bamboo-200 italic">
+            Elige una respuesta del agua para reflexionar sobre tu situación.
+          </div>
+
+          <div class="flex justify-between pt-3">
+            <button onclick="goToLabStep(1)" class="px-4 py-2 border border-ink-700 rounded-xl text-xs font-cinzel text-bamboo-300">
+              ← Atrás
+            </button>
+            <button onclick="goToLabStep(3)" class="px-6 py-2.5 bg-jade-600 hover:bg-jade-500 text-slate-950 font-cinzel font-bold rounded-xl text-xs uppercase tracking-wider">
+              Definir la No-Acción Sabia →
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 3: La Resolución del No-Hacer -->
+        <div id="lab-step-3" class="space-y-4 hidden">
+          <div class="border-l-4 border-jade-400 pl-4 py-1">
+            <h3 class="font-bold text-base text-mist-50">Paso 3: Tu Compromiso Wu Wei para las próximas 24 horas</h3>
+            <p class="text-xs text-bamboo-300">¿Qué abstención deliberada o silencio vas a sostener para permitir que el orden natural opere?</p>
+          </div>
+
+          <textarea id="lab-wuwei-resolution" rows="3" class="w-full bg-ink-850 border border-ink-700 rounded-2xl p-4 text-sm text-mist-50 focus:outline-none focus:border-jade-500 resize-none" placeholder="Ejemplo: Durante las próximas 24 horas no insistiré sobre este asunto. Guardaré silencio, me enfocaré en mi propia labor y permitiré que la otra persona llegue a su propia conclusión a su ritmo."></textarea>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3">
+            <button onclick="goToLabStep(2)" class="w-full sm:w-auto px-4 py-2 border border-ink-700 rounded-xl text-xs font-cinzel text-bamboo-300">
+              ← Atrás
+            </button>
+            <button onclick="saveWuWeiLabEntry()" class="w-full sm:w-auto px-6 py-2.5 bg-gradient-to-r from-jade-600 to-teal-500 hover:from-jade-500 text-slate-950 font-cinzel font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg">
+              🎋 Guardar en el Diario Pǔ
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================= SECCIÓN 3: AYUNO DEL CORAZÓN (XĪNZHĀI) & RESPIRACIÓN ZÌRÁN ================= -->
+    <section id="view-fasting" class="view-content hidden space-y-6">
+      
+      <div class="max-w-2xl mx-auto text-center space-y-2">
+        <span class="text-xs uppercase tracking-widest text-jade-400 font-cinzel font-bold">Zhuangzi · 心齋 (Xīnzhāi)</span>
+        <h2 class="text-3xl font-serif font-bold text-mist-50">El Ayuno del Corazón</h2>
+        <p class="text-sm text-bamboo-200">
+          «No escuches con el oído, sino con la mente; no escuches con la mente, sino con el hálito vital (*Qì*). El oído se limita a captar sonidos, pero el vacío del corazón acoge a todos los seres.»
+        </p>
+      </div>
+
+      <div class="max-w-xl mx-auto shanshui-card rounded-3xl p-6 sm:p-10 text-center relative space-y-6">
+        
+        <!-- Lienzo de Ondas Concéntricas de Agua (Canvas) -->
+        <div class="relative w-64 h-64 mx-auto my-2 flex items-center justify-center">
+          <canvas id="ripple-canvas" width="256" height="256" class="absolute inset-0 rounded-full"></canvas>
+          
+          <!-- Núcleo central del aliento -->
+          <div id="ziran-core" class="relative z-10 w-28 h-28 rounded-full bg-gradient-to-tr from-ink-900 via-jade-950 to-ink-850 border border-jade-400/50 flex flex-col items-center justify-center text-mist-50 shadow-2xl transition-transform duration-1000">
+            <span id="ziran-phase-text" class="font-cinzel text-xs font-bold text-jade-300 uppercase tracking-wider">Marea</span>
+            <span id="ziran-seconds-text" class="text-3xl font-serif font-bold text-mist-50">5.5s</span>
+          </div>
+        </div>
+
+        <!-- Instrucción de la Marea Zìrán -->
+        <div class="space-y-1">
+          <div id="ziran-instruction" class="text-xs uppercase tracking-widest text-jade-400 font-cinzel font-semibold">
+            Inicia para sintonizar con la marea tranquila
+          </div>
+          <div id="ziran-cycle-counter" class="text-xs text-bamboo-400">
+            Ciclos de marea completados: 0
+          </div>
+        </div>
+
+        <!-- Controles de Marea & Arroyo -->
+        <div class="flex items-center justify-center space-x-3 pt-2">
+          <button id="ziran-start-btn" onclick="toggleZiranBreathing()" class="px-8 py-3 bg-gradient-to-r from-jade-600 to-teal-500 hover:from-jade-500 hover:to-teal-400 text-slate-950 font-cinzel font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg">
+            Iniciar Marea Zìrán
+          </button>
+          
+          <button onclick="toggleStreamAudio()" id="ziran-stream-btn" class="p-3 border border-jade-500/40 rounded-2xl bg-ink-850 hover:bg-ink-800 text-jade-300 text-xs font-cinzel" title="Arroyo continuo en segundo plano">
+            🌊 Arroyo
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================= SECCIÓN 4: DIARIO DEL BLOQUE SIN TALLAR (PǓ - 樸) ================= -->
+    <section id="view-unlearning" class="view-content hidden space-y-6">
+      
+      <div class="max-w-2xl mx-auto text-center space-y-2">
+        <span class="text-xs uppercase tracking-widest text-jade-400 font-cinzel font-bold">Daodejing 48 · 為道日損</span>
+        <h2 class="text-3xl font-serif font-bold text-mist-50">El Bloque sin Tallar (樸)</h2>
+        <p class="text-sm text-bamboo-200">
+          «En el estudio común se acumula algo cada día; en el Tao se desaprende algo cada día.» Registra aquello que hoy has soltado para retornar a tu sencillez original.
+        </p>
+      </div>
+
+      <!-- Formulario para Desaprender -->
+      <div class="shanshui-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <h3 class="font-cinzel text-base font-bold border-b border-ink-700 pb-3 flex items-center justify-between text-mist-50">
+          <span>Nuevo Registro de Desaprendizaje</span>
+          <span class="text-xs font-sans font-normal text-bamboo-400" id="unlearning-current-date">Hoy</span>
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs uppercase font-cinzel font-bold text-bamboo-300 mb-1">Situación o Suceso</label>
+            <input type="text" id="unlearn-situation" placeholder="Ej: Tráfico denso / Discrepancia sobre una decisión..." class="w-full bg-ink-850 border border-ink-700 rounded-xl px-4 py-2.5 text-sm text-mist-50 focus:outline-none focus:border-jade-500">
+          </div>
+          <div>
+            <label class="block text-xs uppercase font-cinzel font-bold text-bamboo-300 mb-1">Sello de Desprendimiento</label>
+            <select id="unlearn-category" class="w-full bg-ink-850 border border-ink-700 rounded-xl px-3 py-2.5 text-sm text-mist-50 focus:outline-none focus:border-jade-500">
+              <option value="Dejar de Controlar">Dejar de Controlar (Confiar en el Flujo)</option>
+              <option value="Ceder sin Resentimiento">Ceder sin Resentimiento (El Camino del Agua)</option>
+              <option value="Quietud ante la Provocación">Quietud ante la Provocación (La Barca Vacía)</option>
+              <option value="Simplicidad & Moderación">Simplicidad & Moderación (Pǔ - El Bloque)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase font-cinzel font-bold text-jade-400 mb-1">¿Qué pretensión, exigencia o artificio del ego has soltado?</label>
+          <textarea id="unlearn-content" rows="3" placeholder="Describe cómo diste un paso atrás y permitiste que las cosas fueran como son..." class="w-full bg-ink-850 border border-ink-700 rounded-xl p-3 text-sm text-mist-50 focus:outline-none focus:border-jade-500 resize-none"></textarea>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button onclick="saveUnlearningEntryManual()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-jade-600 to-teal-500 hover:from-jade-500 text-slate-950 font-cinzel font-bold text-xs uppercase tracking-wider shadow-lg">
+            Consagrar Desaprendizaje
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de Filtros y Descarga -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4">
+        <div class="flex items-center space-x-2 w-full sm:w-auto">
+          <input type="text" id="unlearn-search-input" oninput="renderUnlearningEntries()" placeholder="Buscar en desaprendizajes..." class="bg-ink-850 border border-ink-700 rounded-xl px-4 py-2 text-xs text-mist-50 focus:outline-none focus:border-jade-500 w-full sm:w-64">
+        </div>
+        <div class="flex items-center space-x-2 w-full sm:w-auto justify-end">
+          <button onclick="exportUnlearningJSON()" class="px-3 py-2 border border-ink-700 rounded-xl text-xs font-cinzel text-bamboo-300 hover:text-jade-300 hover:bg-ink-850">
+            Exportar JSON
+          </button>
+          <button onclick="exportUnlearningTXT()" class="px-3 py-2 border border-ink-700 rounded-xl text-xs font-cinzel text-bamboo-300 hover:text-jade-300 hover:bg-ink-850">
+            Descargar Texto
+          </button>
+        </div>
+      </div>
+
+      <!-- Lista Histórica de Entradas -->
+      <div id="unlearn-entries-container" class="space-y-4">
+        <!-- Rellenado por JavaScript -->
+      </div>
+
+    </section>
+
+    <!-- ================= SECCIÓN 5: COMPENDIO DEL TAO ================= -->
+    <section id="view-compendium" class="view-content hidden space-y-6">
+      
+      <div class="max-w-2xl mx-auto text-center space-y-2">
+        <span class="text-xs uppercase tracking-widest text-jade-400 font-cinzel font-bold">Daodejing & Zhuangzi</span>
+        <h2 class="text-3xl font-serif font-bold text-mist-50">Biblioteca del Manantial Original</h2>
+        <p class="text-sm text-bamboo-200">
+          Enseñanzas maestras organizadas por las dimensiones esenciales de la naturalidad y la no-coacción.
+        </p>
+      </div>
+
+      <!-- Filtros por Colección -->
+      <div class="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
+        <button onclick="filterCompendium('all')" class="tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-jade-500/40 bg-jade-500 text-slate-950" data-cat="all">Todos</button>
+        <button onclick="filterCompendium('agua')" class="tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-ink-700 text-bamboo-300 hover:border-jade-500/40" data-cat="agua">El Poder del Agua</button>
+        <button onclick="filterCompendium('nohacer')" class="tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-ink-700 text-bamboo-300 hover:border-jade-500/40" data-cat="nohacer">La Paradoja del No-Hacer</button>
+        <button onclick="filterCompendium('vacio')" class="tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-ink-700 text-bamboo-300 hover:border-jade-500/40" data-cat="vacio">La Vacuidad Útil</button>
+        <button onclick="filterCompendium('zhuangzi')" class="tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-ink-700 text-bamboo-300 hover:border-jade-500/40" data-cat="zhuangzi">La Risa de Zhuangzi</button>
+        <button onclick="filterCompendium('bloque')" class="tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-ink-700 text-bamboo-300 hover:border-jade-500/40" data-cat="bloque">El Bloque sin Tallar</button>
+      </div>
+
+      <!-- Buscador en tiempo real -->
+      <div class="max-w-md mx-auto">
+        <input type="text" id="comp-search-box" oninput="searchCompendium()" placeholder="Buscar por caracteres, pinyin, español..." class="w-full bg-ink-850 border border-ink-700 rounded-2xl px-4 py-2.5 text-xs text-mist-50 focus:outline-none focus:border-jade-500">
+      </div>
+
+      <!-- Cuadrícula de Capítulos -->
+      <div id="compendium-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4">
+        <!-- Renderizado dinámico -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= MODAL DE NOTA RÁPIDA ================= -->
+  <div id="modal-note" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
+    <div class="shanshui-card w-full max-w-lg rounded-3xl p-6 shadow-2xl space-y-4 border border-jade-500/40">
+      <div class="flex items-center justify-between border-b border-ink-700 pb-3">
+        <h3 class="font-cinzel text-base font-bold text-mist-50">Desaprender en Silencio</h3>
+        <button onclick="closeNoteModal()" class="text-bamboo-400 hover:text-jade-400 text-xl font-bold">&times;</button>
+      </div>
+      <p class="text-xs text-bamboo-300" id="modal-chapter-ref">
+        Consagrado al capítulo activo.
+      </p>
+      <textarea id="modal-note-text" rows="4" class="w-full bg-ink-850 border border-ink-700 rounded-xl p-3 text-sm text-mist-50 focus:outline-none focus:border-jade-500 resize-none" placeholder="¿Qué rigidez o exigencia estás dispuesto a soltar hoy?"></textarea>
+      
+      <div class="flex justify-end space-x-2 pt-2">
+        <button onclick="closeNoteModal()" class="px-4 py-2 border border-ink-700 rounded-xl text-xs font-cinzel text-bamboo-300">Cancelar</button>
+        <button onclick="saveModalNote()" class="px-5 py-2 bg-jade-600 hover:bg-jade-500 text-slate-950 font-cinzel font-bold rounded-xl text-xs uppercase tracking-wider">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PIE DE PÁGINA ================= -->
+  <footer class="border-t border-ink-800 mt-12 py-8 text-center text-xs text-bamboo-400">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <div class="font-serif italic text-base text-jade-300">
+        «El hombre sabio actúa sin esperar nada, completa su obra sin apegarse a ella y no busca exhibir su mérito.» — Daodejing 2
+      </div>
+      <p class="text-[11px] text-bamboo-400 font-cinzel">TAO · WU WEI · Vol. V de la Pentalogía Contemplativa · Sin dependencias, libre y offline.</p>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPT: LÓGICA, AUDIO PROCEDURAL & CANVAS ================= -->
+  <script>
+    /* =====================================================================
+       BASE DE DATOS CANÓNICA DEL TAO (LAOZI & ZHUANGZI)
+       ===================================================================== */
+    const TAO_DATA = [
+      {
+        id: "ddj-8",
+        source: "Daodejing · Capítulo 8",
+        category: "agua",
+        chinese: "上善若水。水善利萬物而不爭，處眾人之所惡，故幾於道。",
+        pinyin: "Shàng shàn ruò shuǐ. Shuǐ shàn lì wànwù ér bù zhēng, chù zhòngrén zhī suǒ wù, gù jǐ yú dào.",
+        translation: "La suprema bondad es como el agua. El agua nutre a todos los seres sin competir y habita en los lugares que todos desprecian. Por eso se asemeja al Tao.",
+        insight: "Empujar el río solo cansa los brazos; el río ya sabe fluir hacia el mar. Cuando dejas de forzar los acontecimientos y de imponer tu guion personal, la inteligencia natural de las cosas encuentra su equilibrio orgánico.",
+        practice: "Hoy, renuncia activamente a tener la última palabra en cualquier conversación o discrepancia. Deja que el otro gane el argumento aparente y nota el alivio de no gastar energía en defender una imagen."
+      },
+      {
+        id: "ddj-48",
+        source: "Daodejing · Capítulo 48",
+        category: "nohacer",
+        chinese: "為學日益，為道日損。損之又損，以至於無為。無為而無不為。",
+        pinyin: "Wéi xué rì yì, wéi dào rì sǔn. Sǔn zhī yòu sǔn, yǐ zhìyú wúwéi. Wúwéi ér wú bù wéi.",
+        translation: "En el estudio común se acumula algo cada día; en la práctica del Tao se desaprende algo cada día. Desprendiéndose más y más, se llega al Wu Wei: nada se fuerza y nada queda sin hacer.",
+        insight: "La sabiduría taoísta no es acumular datos ni títulos espirituales, sino desmantelar los filtros y las tensiones del ego hasta regresar a la espontaneidad original.",
+        practice: "Elige una regla rígida o exigencia perfeccionista que te autoimpones en el trabajo o la casa, y suspéndela durante 24 horas. Permite que el mundo siga girando sin tu control."
+      },
+      {
+        id: "ddj-11",
+        source: "Daodejing · Capítulo 11",
+        category: "vacio",
+        chinese: "三十輻共一轂，當其無，有車之用。埏埴以為器，當其無，有器之用。鑿戶牖以為室，當其無，有室之用。",
+        pinyin: "Sānshí fú gòng yī gǔ, dāng qí wú, yǒu chē zhī yòng... Dāng qí wú, yǒu qì zhī yòng.",
+        translation: "Treinta radios convergen en el eje de una rueda, pero es su hueco central el que permite rodar al carro. Moldeamos el barro para hacer vasijas, pero es su vacío interior el que las hace útiles.",
+        insight: "Solemos obsesionarnos con lo tangible y lleno de nuestra vida (cargos, planes, posesiones), olvidando que la verdadera función y descanso residen en el espacio vacío que dejamos entre las cosas.",
+        practice: "Deja hoy 15 minutos en blanco absoluto en tu agenda entre dos tareas: sin mirar el móvil, sin leer y sin planificar. Habita el vacío útil."
+      },
+      {
+        id: "zhuangzi-bote",
+        source: "Zhuangzi · Capítulo 20 (El Bote Vacío)",
+        category: "zhuangzi",
+        chinese: "方舟而濟於河，有虛船來越舟，雖有惝怳之人不怒。設有一人在其上，則呼張歙之。",
+        pinyin: "Fāng zhōu ér jì yú hé, yǒu xū chuán lái yuè zhōu, suī yǒu chǎnghuǎng zhī rén bù nù...",
+        translation: "Si una barca vacía colisiona contra la tuya en medio del río, por muy colérico que seas no te enfadarás. Pero si ves a un remero a bordo, le gritarás enfurecido. Quien vacía su propio ego navega por el mundo sin encender la ira de nadie.",
+        insight: "No nos enfada el golpe de los sucesos, sino la creencia de que hay alguien queriendo perjudicarnos personalmente. Conviértete en una barca vacía: donde no hay diana egóica, ninguna flecha puede clavarse.",
+        practice: "Si alguien tiene un mal gesto contigo hoy, imagínalo como una barca a la deriva empujada por la corriente de su propio sufrimiento inconsciente. No te lo tomes como algo personal."
+      },
+      {
+        id: "ddj-78",
+        source: "Daodejing · Capítulo 78",
+        category: "agua",
+        chinese: "天下莫柔弱於水，而攻堅強者莫之能勝，以其無以易之。弱之勝強，柔之勝剛。",
+        pinyin: "Tiānxià mò róuruò yú shuǐ, ér gōng jiānqiáng zhě mò zhī néng shèng... Ruò zhī shèng qiáng, róu zhī shèng gāng.",
+        translation: "Nada en el mundo es tan blando y dócil como el agua; sin embargo, para disolver lo duro y rígido nada la supera. Lo blando vence a lo duro; lo flexible vence a lo rígido.",
+        insight: "La rigidez es síntoma de muerte; la flexibilidad es condición de vida. Quien no sabe doblarse ante el viento acaba quebrado por la tormenta.",
+        practice: "Ante una orden brusca, un cambio inesperado de planes o una mala noticia hoy, en lugar de resistirte con rigidez, adáptate de inmediato como el agua tomando la forma del vaso."
+      },
+      {
+        id: "ddj-56",
+        source: "Daodejing · Capítulo 56",
+        category: "bloque",
+        chinese: "知者不言，言者不知。塞其兌，閉其門，挫其銳，解其紛，和其光，同其塵，是謂玄同。",
+        pinyin: "Zhī zhě bù yán, yán zhě bù zhī. Sè qí duì, bì qí mén, cuò qí ruì, jiě qí fēn, hé qí guāng, tóng qí chén...",
+        translation: "Quien sabe de verdad, guarda silencio sereno; quien habla sin cesar, poco sabe. Desafilad las aristas, desenredad los nudos, armonizad la luz y fundíos con el polvo del camino: esta es la Suprema Unidad.",
+        insight: "La compulsión de opinar sobre todo y de juzgar lo ajeno desgasta el hálito vital. Fundirse con el polvo es vivir con noble sencillez, sin pretender brillar a expensas de nadie.",
+        practice: "Pasa toda la jornada de hoy sin corregir a nadie en una conversación, incluso si crees saber el dato exacto o la solución perfecta."
+      },
+      {
+        id: "zhuangzi-cocinero",
+        source: "Zhuangzi · Capítulo 3 (El Cocinero Ding)",
+        category: "zhuangzi",
+        chinese: "依乎天理，批大郤，導大窾，因其固然。技經肯綮之未嘗，而況大軱乎！",
+        pinyin: "Yī hū tiān lǐ, pī dà xì, dǎo dà kuǎn, yīn qí gùrán...",
+        translation: "Mi cuchillo lleva diecinueve años intacto como recién afilado porque sigo las líneas naturales del cuerpo: deslizo el filo por los huecos vacíos y nunca choco contra los huesos ni los tendones duros.",
+        insight: "La maestría de vivir no radica en el sobreesfuerzo, sino en encontrar por dónde pasa el espacio libre. Si una situación se atasca ferozmente, estás golpeando el hueso; busca el intersticio suave.",
+        practice: "Si hoy sientes que una tarea te agota o te topas con un obstáculo insalvable, detén la fuerza bruta. Da un paseo, cambia de perspectiva y busca el camino natural de menor fricción."
+      }
+    ];
+
+    /* =====================================================================
+       ESTADO Y PERSISTENCIA (LOCALSTORAGE)
+       ===================================================================== */
+    const STORAGE_KEY_JOURNAL = 'tao_unlearning_journal_v1';
+    const STORAGE_KEY_STREAK = 'tao_streak_v1';
+    const STORAGE_KEY_ACTIVE = 'tao_active_chapter_v1';
+
+    let currentChapter = TAO_DATA[0];
+    let unlearningEntries = [];
+    let practiceStreak = { count: 0, lastDate: null };
+    let currentCompFilter = 'all';
+
+    function initApp() {
+      // Cargar racha de gotas
+      try {
+        const savedStreak = localStorage.getItem(STORAGE_KEY_STREAK);
+        if (savedStreak) practiceStreak = JSON.parse(savedStreak);
+      } catch (e) { console.error(e); }
+      updateStreakDisplay();
+
+      // Cargar diario
+      try {
+        const savedJournal = localStorage.getItem(STORAGE_KEY_JOURNAL);
+        if (savedJournal) unlearningEntries = JSON.parse(savedJournal);
+      } catch (e) { unlearningEntries = []; }
+      renderUnlearningEntries();
+
+      // Cargar o elegir capítulo del día
+      try {
+        const savedId = localStorage.getItem(STORAGE_KEY_ACTIVE);
+        if (savedId) {
+          const found = TAO_DATA.find(t => t.id === savedId);
+          if (found) currentChapter = found;
+        } else {
+          const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+          currentChapter = TAO_DATA[dayOfYear % TAO_DATA.length];
+        }
+      } catch (e) { currentChapter = TAO_DATA[0]; }
+
+      renderCurrentChapter();
+      renderCompendium();
+
+      // Fecha en diario
+      const now = new Date();
+      document.getElementById('unlearning-current-date').textContent = now.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+
+      // Inicializar Canvas de Ondas
+      initRippleCanvas();
+    }
+
+    /* =====================================================================
+       NAVEGACIÓN ENTRE PESTAÑAS
+       ===================================================================== */
+    function switchTab(tabId) {
+      document.querySelectorAll('.view-content').forEach(view => view.classList.add('hidden'));
+      const activeView = document.getElementById(`view-${tabId}`);
+      if (activeView) activeView.classList.remove('hidden');
+
+      // Botones desktop
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('tab-active'));
+      const activeNav = document.getElementById(`nav-${tabId}`);
+      if (activeNav) activeNav.classList.add('tab-active');
+
+      // Botones móvil
+      document.querySelectorAll('[id^="mob-nav-"]').forEach(btn => btn.classList.remove('tab-active'));
+      const activeMobNav = document.getElementById(`mob-nav-${tabId}`);
+      if (activeMobNav) activeMobNav.classList.add('tab-active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* =====================================================================
+       NOTIFICACIÓN TOAST SUTIL
+       ===================================================================== */
+    let toastTimeout;
+    function showToast(msg, icon = '🌊') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      document.getElementById('toast-icon').textContent = icon;
+
+      toast.classList.remove('opacity-0', 'translate-y-20', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-20', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3500);
+    }
+
+    /* =====================================================================
+       EL CAPÍTULO VIVO
+       ===================================================================== */
+    function renderCurrentChapter() {
+      document.getElementById('daily-source-tag').textContent = currentChapter.source;
+      document.getElementById('daily-theme-tag').textContent = currentChapter.pinyin.split('.')[0];
+      document.getElementById('daily-chinese').textContent = currentChapter.chinese;
+      document.getElementById('daily-pinyin').textContent = `[ ${currentChapter.pinyin} ]`;
+      document.getElementById('daily-translation').textContent = `«${currentChapter.translation}»`;
+      document.getElementById('daily-insight').textContent = currentChapter.insight;
+      document.getElementById('daily-practice').textContent = currentChapter.practice;
+
+      try {
+        localStorage.setItem(STORAGE_KEY_ACTIVE, currentChapter.id);
+      } catch (e) {}
+      checkIfFlowedToday();
+    }
+
+    function pickRandomChapter() {
+      const others = TAO_DATA.filter(t => t.id !== currentChapter.id);
+      currentChapter = others[Math.floor(Math.random() * others.length)];
+      renderCurrentChapter();
+      playJadeBell(587.33); // Tono Shang
+      showToast(`Nuevo capítulo inspirado: ${currentChapter.source}`, '🎋');
+    }
+
+    function setChapterById(id) {
+      const found = TAO_DATA.find(t => t.id === id);
+      if (found) {
+        currentChapter = found;
+        renderCurrentChapter();
+        switchTab('daily');
+        playJadeBell(659.25); // Tono Jiao
+        showToast(`Capítulo fijado para encarnar hoy: ${currentChapter.source}`, '💧');
+      }
+    }
+
+    function checkIfFlowedToday() {
+      const today = new Date().toISOString().split('T')[0];
+      const isFlowed = practiceStreak.lastDate === today;
+      const btn = document.getElementById('btn-mark-flowed');
+      const txt = document.getElementById('btn-flowed-text');
+
+      if (isFlowed) {
+        btn.classList.remove('from-jade-600', 'to-teal-500');
+        btn.classList.add('from-teal-800', 'to-emerald-800', 'text-bamboo-100');
+        txt.textContent = 'En el flujo natural hoy ✓';
+      } else {
+        btn.classList.add('from-jade-600', 'to-teal-500');
+        btn.classList.remove('from-teal-800', 'to-emerald-800', 'text-bamboo-100');
+        txt.textContent = 'He fluido con este principio hoy';
+      }
+    }
+
+    function markFlowedToday() {
+      const today = new Date().toISOString().split('T')[0];
+      if (practiceStreak.lastDate === today) {
+        showToast('Ya has sellado tu fluidez de hoy.', '💧');
+        return;
+      }
+
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+      if (practiceStreak.lastDate === yesterdayStr) {
+        practiceStreak.count += 1;
+      } else {
+        practiceStreak.count = 1;
+      }
+
+      practiceStreak.lastDate = today;
+      try {
+        localStorage.setItem(STORAGE_KEY_STREAK, JSON.stringify(practiceStreak));
+      } catch (e) {}
+
+      updateStreakDisplay();
+      checkIfFlowedToday();
+      playJadeBell(523.25);
+      showToast('Gota añadida al flujo: La no-fuerza es tu mayor poder.', '🌊');
+    }
+
+    function updateStreakDisplay() {
+      const el = document.getElementById('streak-counter');
+      const c = practiceStreak.count || 0;
+      el.textContent = `${c} ${c === 1 ? 'gota' : 'gotas'}`;
+    }
+
+    function shareChapterText() {
+      const txt = `*${currentChapter.source}*\n${currentChapter.chinese}\n\nSignificado:\n${currentChapter.translation}\n\nMicro-Práctica Wu Wei:\n${currentChapter.practice}\n\n— TAO · WU WEI (El Curso Espontáneo)`;
+      copyToClipboardText(txt);
+      showToast('Capítulo copiado al portapapeles.', '📋');
+    }
+
+    function copyToClipboardText(str) {
+      const temp = document.createElement('textarea');
+      temp.value = str;
+      temp.style.position = 'fixed';
+      temp.style.left = '-9999px';
+      document.body.appendChild(temp);
+      temp.select();
+      try { document.execCommand('copy'); } catch (e) { console.error(e); }
+      document.body.removeChild(temp);
+    }
+
+    /* =====================================================================
+       LABORATORIO WU WEI
+       ===================================================================== */
+    let currentLabStep = 1;
+    let selectedWaterPrinciple = "";
+
+    function goToLabStep(step) {
+      currentLabStep = step;
+      document.getElementById('lab-step-1').classList.toggle('hidden', step !== 1);
+      document.getElementById('lab-step-2').classList.toggle('hidden', step !== 2);
+      document.getElementById('lab-step-3').classList.toggle('hidden', step !== 3);
+
+      for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById(`lab-step-btn-${i}`);
+        if (i === step) {
+          btn.className = "py-2 text-xs font-cinzel font-bold border-b-2 border-jade-500 text-jade-300";
+        } else {
+          btn.className = "py-2 text-xs font-cinzel font-bold border-b-2 border-transparent text-bamboo-400";
+        }
+      }
+    }
+
+    function setLabPreset(text) {
+      document.getElementById('lab-friction-input').value = text;
+    }
+
+    function selectWaterNature(name, desc) {
+      selectedWaterPrinciple = `${name}: ${desc}`;
+      document.querySelectorAll('.water-opt-btn').forEach(btn => {
+        btn.classList.remove('border-jade-400', 'bg-jade-950/40');
+      });
+      event.currentTarget.classList.add('border-jade-400', 'bg-jade-950/40');
+      document.getElementById('water-feedback').innerHTML = `
+        <strong>Respuesta del Agua seleccionada:</strong> ${escapeHtml(name)}<br>
+        <span class="text-jade-300">«${escapeHtml(desc)}»</span>
+      `;
+      playJadeBell(783.99);
+    }
+
+    function saveWuWeiLabEntry() {
+      const friction = document.getElementById('lab-friction-input').value.trim();
+      const resolution = document.getElementById('lab-wuwei-resolution').value.trim();
+
+      if (!friction) {
+        showToast('Escribe primero la situación donde sentías tensión o apego.', '⚠️');
+        goToLabStep(1);
+        return;
+      }
+
+      const entry = {
+        id: Date.now().toString(),
+        date: new Date().toISOString(),
+        situation: friction,
+        category: "Dejar de Controlar",
+        content: `La Mirada del Agua: ${selectedWaterPrinciple || "Ceder y no chocar de frente."}\n\nResolución Wu Wei (24 horas): ${resolution || "Dejar de intervenir activamente; permitir que el orden natural se asiente por sí mismo."}`
+      };
+
+      unlearningEntries.unshift(entry);
+      try {
+        localStorage.setItem(STORAGE_KEY_JOURNAL, JSON.stringify(unlearningEntries));
+      } catch (e) {}
+
+      renderUnlearningEntries();
+      playJadeBell(523.25);
+      showToast('Resolución consagrada en el Diario Pǔ.', '🎋');
+
+      // Limpiar y resetear
+      document.getElementById('lab-friction-input').value = '';
+      document.getElementById('lab-wuwei-resolution').value = '';
+      goToLabStep(1);
+      switchTab('unlearning');
+    }
+
+    /* =====================================================================
+       AYUNO DEL CORAZÓN (XĪNZHĀI) & RESPIRACIÓN ZÌRÁN (CANVAS RIPPLES)
+       ===================================================================== */
+    let ziranInterval = null;
+    let isZiranActive = false;
+    let ziranTick = 0;
+    let ziranCycles = 0;
+    const ZIRAN_HALF_CYCLE = 5.5; // 5.5s inhalar, 5.5s exhalar (ritmo coherente orgánico)
+
+    let canvas, ctx, rippleRadius = 20, rippleMax = 120, rippleGrowing = true;
+    let animationFrameId = null;
+
+    function initRippleCanvas() {
+      canvas = document.getElementById('ripple-canvas');
+      if (!canvas) return;
+      ctx = canvas.getContext('2d');
+      drawRipples();
+    }
+
+    function drawRipples() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+
+      // Dibujar 3 ondas concéntricas acuáticas
+      for (let i = 0; i < 3; i++) {
+        const r = (rippleRadius + i * 35) % rippleMax;
+        const opacity = Math.max(0, 1 - (r / rippleMax));
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(52, 211, 153, ${opacity * 0.45})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      if (isZiranActive) {
+        if (rippleGrowing) {
+          rippleRadius += 0.35;
+        } else {
+          rippleRadius -= 0.35;
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(drawRipples);
+    }
+
+    function toggleZiranBreathing() {
+      const btn = document.getElementById('ziran-start-btn');
+      if (isZiranActive) {
+        clearInterval(ziranInterval);
+        isZiranActive = false;
+        btn.textContent = 'Iniciar Marea Zìrán';
+        btn.classList.remove('from-teal-800', 'to-emerald-800');
+        btn.classList.add('from-jade-600', 'to-teal-500');
+        resetZiranVisuals();
+      } else {
+        isZiranActive = true;
+        btn.textContent = 'Detener / Reposar';
+        btn.classList.add('from-teal-800', 'to-emerald-800');
+        btn.classList.remove('from-jade-600', 'to-teal-500');
+        startZiranLoop();
+      }
+    }
+
+    function resetZiranVisuals() {
+      document.getElementById('ziran-core').style.transform = 'scale(1)';
+      document.getElementById('ziran-phase-text').textContent = 'Marea';
+      document.getElementById('ziran-seconds-text').textContent = '5.5s';
+      document.getElementById('ziran-instruction').textContent = 'Inicia para sintonizar con la marea tranquila';
+    }
+
+    function startZiranLoop() {
+      playJadeBell(523.25);
+      ziranTick = 0;
+
+      const step = () => {
+        const fullCycle = ZIRAN_HALF_CYCLE * 2; // 11s
+        const secInCycle = (ziranTick % fullCycle);
+        const core = document.getElementById('ziran-core');
+        const phaseTxt = document.getElementById('ziran-phase-text');
+        const countTxt = document.getElementById('ziran-seconds-text');
+        const instrTxt = document.getElementById('ziran-instruction');
+
+        if (secInCycle < ZIRAN_HALF_CYCLE) {
+          // Fase Inhalación / Marea Creciente
+          rippleGrowing = true;
+          phaseTxt.textContent = "Inhala";
+          const rem = (ZIRAN_HALF_CYCLE - secInCycle).toFixed(1);
+          countTxt.textContent = `${rem}s`;
+          instrTxt.textContent = "El hálito vital llena el cuenco del cuerpo sin esfuerzo";
+          core.style.transform = 'scale(1.45)';
+          if (secInCycle === 0) playJadeBell(659.25);
+        } else {
+          // Fase Exhalación / Marea Descendente
+          rippleGrowing = false;
+          phaseTxt.textContent = "Exhala";
+          const rem = (fullCycle - secInCycle).toFixed(1);
+          countTxt.textContent = `${rem}s`;
+          instrTxt.textContent = "Soltar todo apego y dejar que el agua se calme sola";
+          core.style.transform = 'scale(0.85)';
+          if (secInCycle === Math.floor(ZIRAN_HALF_CYCLE)) playJadeBell(440.00);
+        }
+
+        ziranTick += 0.5;
+        if (ziranTick % fullCycle === 0) {
+          ziranCycles++;
+          document.getElementById('ziran-cycle-counter').textContent = `Ciclos de marea completados: ${ziranCycles}`;
+        }
+      };
+
+      step();
+      ziranInterval = setInterval(step, 500);
+    }
+
+    /* =====================================================================
+       DIARIO DEL BLOQUE SIN TALLAR (PǓ - 樸)
+       ===================================================================== */
+    function saveUnlearningEntryManual() {
+      const situation = document.getElementById('unlearn-situation').value.trim();
+      const category = document.getElementById('unlearn-category').value;
+      const content = document.getElementById('unlearn-content').value.trim();
+
+      if (!situation && !content) {
+        showToast('Escribe al menos una línea sobre lo que has soltado.', '⚠️');
+        return;
+      }
+
+      const entry = {
+        id: Date.now().toString(),
+        date: new Date().toISOString(),
+        situation: situation || 'Momento cotidiano de no-fuerza',
+        category: category,
+        content: content || 'He dejado de empujar y he confiado en el orden natural del Tao.'
+      };
+
+      unlearningEntries.unshift(entry);
+      try {
+        localStorage.setItem(STORAGE_KEY_JOURNAL, JSON.stringify(unlearningEntries));
+      } catch (e) {}
+
+      document.getElementById('unlearn-situation').value = '';
+      document.getElementById('unlearn-content').value = '';
+
+      renderUnlearningEntries();
+      playJadeBell(523.25);
+      showToast('Desaprendizaje registrado en el Bloque sin Tallar.', '🎋');
+    }
+
+    function renderUnlearningEntries() {
+      const container = document.getElementById('unlearn-entries-container');
+      const search = (document.getElementById('unlearn-search-input')?.value || '').toLowerCase();
+
+      const filtered = unlearningEntries.filter(entry => {
+        return (
+          entry.situation.toLowerCase().includes(search) ||
+          entry.category.toLowerCase().includes(search) ||
+          entry.content.toLowerCase().includes(search)
+        );
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 border border-dashed border-ink-700 rounded-3xl p-8 shanshui-card">
+            <div class="text-3xl mb-2 text-jade-400/50">🎋</div>
+            <h4 class="font-cinzel text-base font-bold text-bamboo-200">El Bloque está Intacto</h4>
+            <p class="text-xs text-bamboo-400 max-w-sm mx-auto mt-1">
+              Aún no hay registros de desaprendizaje. Utiliza el formulario superior o el Laboratorio Wu Wei para plasmar tus renuncias al control.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const d = new Date(item.date);
+        const dateStr = d.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+        return `
+          <div class="shanshui-card rounded-2xl p-5 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-ink-700/80 pb-2">
+              <div class="flex items-center space-x-2">
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-ink-850 border border-jade-500/30 text-jade-300 font-cinzel font-semibold">${escapeHtml(item.category)}</span>
+              </div>
+              <div class="flex items-center space-x-2 text-xs text-bamboo-400">
+                <span>${dateStr}</span>
+                <button onclick="deleteUnlearnEntry('${item.id}')" class="hover:text-red-400 p-1" title="Retirar entrada">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="text-sm font-semibold text-mist-50">
+              <span class="text-xs uppercase tracking-wider text-bamboo-400 block font-normal font-cinzel">Situación:</span>
+              ${escapeHtml(item.situation)}
+            </div>
+
+            <div class="text-xs text-bamboo-200 bg-ink-850/90 p-4 rounded-xl border border-jade-500/20 leading-relaxed font-serif text-sm italic">
+              ${escapeHtml(item.content).replace(/\n/g, '<br>')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function deleteUnlearnEntry(id) {
+      unlearningEntries = unlearningEntries.filter(e => e.id !== id);
+      try {
+        localStorage.setItem(STORAGE_KEY_JOURNAL, JSON.stringify(unlearningEntries));
+      } catch (e) {}
+      renderUnlearningEntries();
+      showToast('Registro retirado del diario.');
+    }
+
+    function exportUnlearningJSON() {
+      if (unlearningEntries.length === 0) {
+        showToast('No hay registros para exportar.', 'ℹ️');
+        return;
+      }
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(unlearningEntries, null, 2));
+      const dl = document.createElement('a');
+      dl.setAttribute("href", dataStr);
+      dl.setAttribute("download", `tao_desaprendizaje_${new Date().toISOString().split('T')[0]}.json`);
+      document.body.appendChild(dl);
+      dl.click();
+      dl.remove();
+      showToast('Archivo JSON descargado.', '💾');
+    }
+
+    function exportUnlearningTXT() {
+      if (unlearningEntries.length === 0) {
+        showToast('No hay registros para exportar.', 'ℹ️');
+        return;
+      }
+      let content = "=========================================================\n";
+      content += "  TAO · EL DIARIO DEL BLOQUE SIN TALLAR (PǓ - 樸)\n";
+      content += "=========================================================\n\n";
+
+      unlearningEntries.forEach((e, idx) => {
+        content += `[Entrada ${idx + 1}] — ${new Date(e.date).toLocaleString()}\n`;
+        content += `Categoría: ${e.category}\n`;
+        content += `Situación: ${e.situation}\n`;
+        content += `Desaprendizaje:\n${e.content}\n`;
+        content += "---------------------------------------------------------\n\n";
+      });
+
+      const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const dl = document.createElement('a');
+      dl.href = url;
+      dl.download = `tao_desaprendizajes_${new Date().toISOString().split('T')[0]}.txt`;
+      document.body.appendChild(dl);
+      dl.click();
+      document.body.removeChild(dl);
+      URL.revokeObjectURL(url);
+      showToast('Registros descargados en texto plano.', '📄');
+    }
+
+    /* =====================================================================
+       COMPENDIO DEL TAO
+       ===================================================================== */
+    function filterCompendium(cat) {
+      currentCompFilter = cat;
+      document.querySelectorAll('.tao-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.className = "tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-jade-500/40 bg-jade-500 text-slate-950";
+        } else {
+          btn.className = "tao-filter-btn px-3 py-1.5 rounded-full text-xs font-cinzel font-semibold border border-ink-700 text-bamboo-300 hover:border-jade-500/40";
+        }
+      });
+      renderCompendium();
+    }
+
+    function searchCompendium() {
+      renderCompendium();
+    }
+
+    function renderCompendium() {
+      const container = document.getElementById('compendium-grid');
+      const search = (document.getElementById('comp-search-box')?.value || '').toLowerCase();
+
+      const filtered = TAO_DATA.filter(t => {
+        const matchesCat = currentCompFilter === 'all' || t.category === currentCompFilter;
+        const matchesSearch = t.source.toLowerCase().includes(search) ||
+                              t.chinese.toLowerCase().includes(search) ||
+                              t.pinyin.toLowerCase().includes(search) ||
+                              t.translation.toLowerCase().includes(search) ||
+                              t.insight.toLowerCase().includes(search) ||
+                              t.practice.toLowerCase().includes(search);
+        return matchesCat && matchesSearch;
+      });
+
+      container.innerHTML = filtered.map(t => {
+        return `
+          <div class="shanshui-card rounded-3xl p-6 flex flex-col justify-between space-y-4 border border-ink-700 hover:border-jade-500/50 transition">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md font-cinzel text-xs font-bold bg-ink-850 text-jade-300 border border-jade-500/30">
+                  ${escapeHtml(t.source)}
+                </span>
+                <span class="text-[10px] uppercase font-cinzel tracking-wider text-bamboo-400">
+                  ${escapeHtml(t.category)}
+                </span>
+              </div>
+
+              <h3 class="font-chinese text-xl font-bold text-mist-50 tracking-wider">
+                ${escapeHtml(t.chinese)}
+              </h3>
+              <p class="text-xs text-jade-400 font-medium">
+                «${escapeHtml(t.translation)}»
+              </p>
+              <p class="text-xs text-bamboo-200 leading-relaxed pt-1">
+                ${escapeHtml(t.insight)}
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-ink-700 flex items-center justify-between gap-2">
+              <div class="text-[11px] text-teal-300 truncate flex-1 font-medium">
+                🎋 <strong>Práctica:</strong> ${escapeHtml(t.practice)}
+              </div>
+              <button onclick="setChapterById('${t.id}')" class="px-3 py-1.5 rounded-xl bg-ink-850 hover:bg-jade-500 hover:text-slate-950 text-xs font-cinzel font-semibold text-bamboo-100 transition border border-ink-700 hover:border-jade-500">
+                Encarnar hoy
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* =====================================================================
+       MODAL DE NOTA RÁPIDA
+       ===================================================================== */
+    function openNoteModal() {
+      document.getElementById('modal-chapter-ref').textContent = `Inspirado en ${currentChapter.source}: "${currentChapter.translation}"`;
+      document.getElementById('modal-note-text').value = '';
+      document.getElementById('modal-note').classList.remove('hidden');
+    }
+
+    function closeNoteModal() {
+      document.getElementById('modal-note').classList.add('hidden');
+    }
+
+    function saveModalNote() {
+      const val = document.getElementById('modal-note-text').value.trim();
+      if (!val) {
+        showToast('Escribe unas palabras para tu nota.', '⚠️');
+        return;
+      }
+
+      const entry = {
+        id: Date.now().toString(),
+        date: new Date().toISOString(),
+        situation: `Contemplación: ${currentChapter.source}`,
+        category: "Simplicidad & Moderación",
+        content: val
+      };
+
+      unlearningEntries.unshift(entry);
+      try {
+        localStorage.setItem(STORAGE_KEY_JOURNAL, JSON.stringify(unlearningEntries));
+      } catch (e) {}
+
+      renderUnlearningEntries();
+      closeNoteModal();
+      playJadeBell(523.25);
+      showToast('Desaprendizaje guardado.', '🎋');
+    }
+
+    /* =====================================================================
+       GENERADOR ACÚSTICO DE ARROYO DE MONTAÑA Y CAMPANA DE JADE (WEB AUDIO API)
+       ===================================================================== */
+    let audioCtx = null;
+    let isStreamPlaying = false;
+    let streamSource = null;
+    let streamGain = null;
+    let streamLfo1 = null, streamLfo2 = null;
+
+    function initAudioContext() {
+      if (!audioCtx) {
+        const AudioClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioClass();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    // Tañido de Campana de Jade / Guqin Pentatónico (Web Audio API pura)
+    function playJadeBell(freq = 523.25) {
+      try {
+        initAudioContext();
+        const now = audioCtx.currentTime;
+
+        const harmonics = [
+          { f: freq * 1.0, g: 0.32, d: 4.8 },
+          { f: freq * 2.76, g: 0.14, d: 3.2 },
+          { f: freq * 5.40, g: 0.06, d: 1.8 }
+        ];
+
+        harmonics.forEach(h => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(h.f, now);
+          osc.frequency.linearRampToValueAtTime(h.f + 0.25, now + h.d);
+
+          gain.gain.setValueAtTime(0, now);
+          gain.gain.linearRampToValueAtTime(h.g, now + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + h.d);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start(now);
+          osc.stop(now + h.d);
+        });
+      } catch (e) {
+        console.warn('Audio no iniciado hasta interacción del usuario:', e);
+      }
+    }
+
+    // Síntesis de Arroyo de Montaña y Bambú (Ruido blanco + filtros resonantes pasa-banda modulados)
+    function toggleStreamAudio() {
+      initAudioContext();
+      isStreamPlaying = !isStreamPlaying;
+
+      const headerBtn = document.getElementById('stream-btn');
+      const headerIcon = document.getElementById('stream-icon');
+      const headerText = document.getElementById('stream-btn-text');
+      const ziranBtn = document.getElementById('ziran-stream-btn');
+
+      if (isStreamPlaying) {
+        startStreamSound();
+        headerBtn.classList.add('bg-jade-500/20', 'border-jade-400');
+        if (ziranBtn) ziranBtn.classList.add('bg-jade-500/20', 'text-jade-300');
+        headerIcon.textContent = '🔊';
+        headerText.textContent = 'Pausar';
+        showToast('Murmullo de manantial activado.', '🌊');
+      } else {
+        stopStreamSound();
+        headerBtn.classList.remove('bg-jade-500/20', 'border-jade-400');
+        if (ziranBtn) ziranBtn.classList.remove('bg-jade-500/20', 'text-jade-300');
+        headerIcon.textContent = '🌊';
+        headerText.textContent = 'Arroyo';
+        showToast('Arroyo en silencio.');
+      }
+    }
+
+    function startStreamSound() {
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+
+      // Crear buffer de ruido blanco de 3 segundos
+      const bufferSize = audioCtx.sampleRate * 3;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+      }
+
+      streamSource = audioCtx.createBufferSource();
+      streamSource.buffer = noiseBuffer;
+      streamSource.loop = true;
+
+      // Dos filtros pasa-banda resonantes con frecuencias moduladas por LFOs para emular borboteo
+      const bpf1 = audioCtx.createBiquadFilter();
+      bpf1.type = 'bandpass';
+      bpf1.frequency.setValueAtTime(450, now);
+      bpf1.Q.setValueAtTime(3.5, now);
+
+      const bpf2 = audioCtx.createBiquadFilter();
+      bpf2.type = 'bandpass';
+      bpf2.frequency.setValueAtTime(1100, now);
+      bpf2.Q.setValueAtTime(4.0, now);
+
+      const lpf = audioCtx.createBiquadFilter();
+      lpf.type = 'lowpass';
+      lpf.frequency.setValueAtTime(2200, now);
+
+      // LFOs para modulación acuática
+      streamLfo1 = audioCtx.createOscillator();
+      const lfoGain1 = audioCtx.createGain();
+      streamLfo1.frequency.setValueAtTime(0.28, now); // Ciclo lento
+      lfoGain1.gain.setValueAtTime(180, now);
+      streamLfo1.connect(lfoGain1);
+      lfoGain1.connect(bpf1.frequency);
+      streamLfo1.start(now);
+
+      streamLfo2 = audioCtx.createOscillator();
+      const lfoGain2 = audioCtx.createGain();
+      streamLfo2.frequency.setValueAtTime(0.42, now); // Ciclo complementario
+      lfoGain2.gain.setValueAtTime(350, now);
+      streamLfo2.connect(lfoGain2);
+      lfoGain2.connect(bpf2.frequency);
+      streamLfo2.start(now);
+
+      streamGain = audioCtx.createGain();
+      streamGain.gain.setValueAtTime(0, now);
+      streamGain.gain.linearRampToValueAtTime(0.25, now + 1.2);
+
+      // Conexión en paralelo de los resonadores a través del filtro pasa-bajos
+      streamSource.connect(bpf1);
+      streamSource.connect(bpf2);
+      bpf1.connect(lpf);
+      bpf2.connect(lpf);
+      lpf.connect(streamGain);
+      streamGain.connect(audioCtx.destination);
+
+      streamSource.start(now);
+    }
+
+    function stopStreamSound() {
+      if (!audioCtx || !streamGain) return;
+      const now = audioCtx.currentTime;
+      streamGain.gain.linearRampToValueAtTime(0.0001, now + 0.8);
+      setTimeout(() => {
+        try { if (streamSource) streamSource.stop(); } catch (e) {}
+        try { if (streamLfo1) streamLfo1.stop(); } catch (e) {}
+        try { if (streamLfo2) streamLfo2.stop(); } catch (e) {}
+        streamSource = null;
+        streamLfo1 = null;
+        streamLfo2 = null;
+      }, 850);
+    }
+
+    /* =====================================================================
+       UTILIDADES GENERALES
+       ===================================================================== */
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initApp();
+      document.getElementById('nav-daily')?.classList.add('tab-active');
+      document.getElementById('mob-nav-daily')?.classList.add('tab-active');
+    });
+  </script>
+</body>
+</html>

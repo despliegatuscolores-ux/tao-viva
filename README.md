@@ -61,53 +61,6 @@ Espacio interactivo de discernimiento para desatar nudos sin romper la cuerda:
 
 ---
 
-## 🏛️ Arquitectura Técnica
-
-Diseñado para perdurar sin requerir actualización de dependencias, compilación ni conexión a servidores externos:
-
-| Capa | Implementación | Propósito |
-|---|---|---|
-| **Estructura** | HTML5 Semántico Puro | Accesibilidad universal y renderizado instantáneo en cualquier navegador. |
-| **Estética Shanshui** | Tailwind CSS CDN + Variables CSS | Paleta de tinta oscura (`#0a0d10`, `#11161d`), jade imperial suave (`#10b981`, `#34d399`), papiro beige (`#f7f4ed`) y niebla. |
-| **Tipografía** | Cormorant Garamond + Cinzel + Noto Serif SC + Inter | Fusión clásica occidental y caracteres chinos tradicionales con respaldos de sistema (`Georgia`, `SimSun`, `sans-serif`). |
-| **Animación Gráfica** | HTML5 Canvas 2D API | Ondas de agua concéntricas reactivas calculadas proceduralmente a 60 FPS sin librerías pesadas. |
-| **Motor Sonoro** | Web Audio API Nativa | Síntesis acústica procedural en tiempo real del murmullo del agua y resonancias de campana de jade. |
-| **Persistencia** | Web Storage API (`localStorage`) | Datos 100% aislados en el dispositivo del usuario. Sin cookies, servidores remotos ni telemetría. |
-
----
-
-## 🚀 Puesta en Marcha
-
-### Uso Local Inmediato
-No requiere Node.js, npm, compilación ni configuración de servidor:
-
-```bash
-# 1. Clonar el repositorio
-git clone https://github.com/<tu-usuario>/tao-viva.git
-
-# 2. Entrar en la carpeta
-cd tao-viva
-
-# 3. Abrir en cualquier navegador moderno
-open index.html        # macOS
-xdg-open index.html    # Linux
-start index.html       # Windows
-```
-
-### Despliegue en GitHub Pages (Gratuito y Permanente)
-
-1. En tu cuenta de GitHub, crea un nuevo repositorio público o privado llamado `tao-viva`.
-2. Sube el archivo de la aplicación renombrado como `index.html` en la raíz del repositorio, junto con este `README.md` y el archivo de licencia `LICENSE`.
-3. Ve a la pestaña **Settings** del repositorio.
-4. En el menú lateral izquierdo, haz clic en **Pages**.
-5. En **Build and deployment > Branch**, selecciona la rama `main` (o `master`) y la carpeta `/ (root)`.
-6. Haz clic en **Save**. En un par de minutos tu aplicación estará publicada globalmente en:
-   ```text
-   https://<tu-usuario>.github.io/tao-viva/
-   ```
-
----
-
 ## 📜 La Pentalogía Contemplativa
 
 Este proyecto constituye el quinto volumen de la serie contemplativa abierta, completando un mapa integral del despertar de la consciencia humana:
